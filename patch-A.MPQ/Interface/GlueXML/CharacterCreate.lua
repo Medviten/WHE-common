@@ -1,0 +1,903 @@
+CHARACTER_FACING_INCREMENT = 2;
+MAX_RACES = 70;
+MAX_CLASSES_PER_RACE = 10;
+NUM_CHAR_CUSTOMIZATIONS = 5;
+MIN_CHAR_NAME_LENGTH = 2;
+CHARACTER_CREATE_ROTATION_START_X = nil;
+CHARACTER_CREATE_INITIAL_FACING = nil;
+
+PAID_CHARACTER_CUSTOMIZATION = 1;
+PAID_RACE_CHANGE = 2;
+PAID_FACTION_CHANGE = 3;
+PAID_SERVICE_CHARACTER_ID = nil;
+PAID_SERVICE_TYPE = nil;
+
+FACTION_BACKDROP_COLOR_TABLE = {
+	["Alliance"]             = {0.5, 0.5, 0.5, 0.09, 0.09, 0.19},
+	["Horde"]                = {0.5, 0.2, 0.2, 0.19, 0.05, 0.05},
+};
+FRAMES_TO_BACKDROP_COLOR = { 
+	"CharacterCreateCharacterRace",
+	"CharacterCreateCharacterClass",
+--	"CharacterCreateCharacterFaction",
+	"CharacterCreateNameEdit",
+};
+RACE_ICON_TCOORDS = {
+	["HUMAN_MALE"]                = {0,       0.03125, 0,    0.25},
+	["GILNEAN_MALE"]              = {0,       0.03125, 0,    0.25},
+	["DWARF_MALE"]                = {0.03125, 0.0625,  0,    0.25},
+	["GNOME_MALE"]                = {0.0625,  0.09375, 0,    0.25},
+	["NIGHTELF_MALE"]             = {0.09375, 0.125,   0,    0.25},
+	["DRAENEI_MALE"]              = {0.125,   0.15625, 0,    0.25},
+	["WORGEN_MALE"]               = {0.15625, 0.1875,  0,    0.25},
+	["ALLIANCEPANDAREN_MALE"]     = {0.1875,  0.21875, 0,    0.25},
+	["VOIDELF_MALE"]              = {0.21875, 0.25,    0,    0.25},
+	["LIGHTFORGEDDRAENEI_MALE"]   = {0.25,    0.28125, 0,    0.25},
+	["KULTIRAN_MALE"]             = {0.28125, 0.3125,  0,    0.25},
+	["DARKIRONDWARF_MALE"]        = {0.3125,  0.34375, 0,    0.25},
+	["MECHAGNOME_MALE"]           = {0.34375, 0.375,   0,    0.25},
+	["ALLIANCEDRACTHYR_MALE"]     = {0.375,   0.40625, 0,    0.25},
+	["ALLIANCEEARTHEN_MALE"]      = {0.40625, 0.4375,  0,    0.25},
+	["ALLIANCEHARANIR_MALE"]      = {0.4375,  0.46875, 0,    0.25},
+	["ALLIANCESKYBORNE_MALE"]     = {0.46875, 0.5,     0,    0.25},
+	["HIGHELF_MALE"]              = {0.5,     0.53125, 0,    0.25},
+	["BROKEN_MALE"]               = {0.53125, 0.5625,  0,    0.25},
+	["FURBOLG_MALE"]              = {0.5625,  0.59375, 0,    0.25},
+	["VRYKUL_MALE"]               = {0.59375, 0.625,   0,    0.25},
+	["TUSKARR_MALE"]              = {0.625,   0.65625, 0,    0.25},
+
+	["TAUREN_MALE"]               = {0,       0.03125, 0.25,  0.5},
+	["SCOURGE_MALE"]              = {0.03125, 0.0625,  0.25,  0.5},
+	["TROLL_MALE"]                = {0.0625,  0.09375, 0.25,  0.5},
+	["ORC_MALE"]                  = {0.09375, 0.125,   0.25,  0.5},
+	["BLOODELF_MALE"]             = {0.125,   0.15625, 0.25,  0.5},
+	["GOBLIN_MALE"]               = {0.15625, 0.1875,  0.25,  0.5},
+	["HORDEPANDAREN_MALE"]        = {0.1875,  0.21875, 0.25,  0.5},
+	["NIGHTBORNE_MALE"]           = {0.21875, 0.25,    0.25,  0.5},
+	["HIGHMOUNTAINTAUREN_MALE"]   = {0.25,    0.28125, 0.25,  0.5},
+	["ZANDALARITROLL_MALE"]       = {0.28125, 0.3125,  0.25,  0.5},
+	["VULPERA_MALE"]              = {0.3125,  0.34375, 0.25,  0.5},
+	["MAGHAR_MALE"]               = {0.34375, 0.375,   0.25,  0.5},
+	["HORDEDRACTHYR_MALE"]        = {0.375,   0.40625, 0.25,  0.5},
+	["HORDEEARTHEN_MALE"]         = {0.40625, 0.4375,  0.25,  0.5},
+	["HORDEHARANIR_MALE"]         = {0.4375,  0.46875, 0.25,  0.5},
+	["HORDESKYBORNE_MALE"]        = {0.46875, 0.5,     0.25,  0.5},
+	["OGRE_MALE"]                 = {0.5,     0.53125, 0.25,  0.5},
+	["NAGA_MALE"]                 = {0.53125, 0.5625,  0.25,  0.5},
+	["MURLOC_MALE"]               = {0.5625,  0.59375, 0.25,  0.5},
+	["TAUNKA_MALE"]               = {0.59375, 0.625,   0.25,  0.5},
+	["DARKFALLEN_MALE"]           = {0.625,   0.65625, 0.25,  0.5},
+	["SLIMEGIANT_MALE"]           = {0.03125, 0.0625,  0.25,  0.5}, -- placeholder: the Undead icon
+	["FELORC_MALE"]               = {0.09375, 0.125,   0.25, 0.5}, -- placeholder: the Orc icon
+	["SKELETON_MALE"]             = {0.03125, 0.0625,  0.25, 0.5}, -- placeholder: the Scourge icon
+	["FORESTTROLL_MALE"]          = {0.0625,  0.09375, 0.25, 0.5}, -- placeholder: the Troll icon
+	["NORTHRENDSKELETON_MALE"]    = {0.03125, 0.0625,  0.25, 0.5}, -- placeholder: the Scourge icon
+	["ICETROLL_MALE"]             = {0.0625,  0.09375, 0.25, 0.5}, -- placeholder: the Troll icon
+	["QIRAJI_MALE"]               = {0.09375, 0.125,   0.25, 0.5}, -- placeholder: the Orc icon
+	["EREDAR_MALE"]               = {0.65625, 0.6875,  0,    0.25}, -- Kalibro's Eredar icon
+	["ARAKKOA_MALE"]              = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon
+	["FELELF_MALE"]               = {0.125,   0.15625, 0.25, 0.5}, -- placeholder: the BloodElf icon
+	["QUILLBOAR_MALE"]            = {0,       0.03125, 0.25, 0.5}, -- placeholder: the Tauren icon
+	["CENTAUR_MALE"]              = {0.75,    0.78125, 0,    0.25}, -- Esteria's Centaur icon
+	["DEMON_MALE"]                = {0.125,   0.15625, 0.25, 0.5}, -- placeholder: the BloodElf icon
+	["SATYR_MALE"]                = {0.09375, 0.125,   0,    0.25}, -- placeholder: the NightElf icon
+	["GNOLL_MALE"]                = {0.71875, 0.75,    0,    0.25}, -- Kalibro's Gnoll icon
+	["BEHOLDER_MALE"]             = {0.0625,  0.09375, 0,    0.25}, -- placeholder: the Gnome icon
+	["SHIVAN_MALE"]               = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon
+	["HOZEN_MALE"]                = {0,       0.03125, 0,    0.25}, -- placeholder: the Human icon
+	["SYLVARI_MALE"]              = {0.09375, 0.125,   0,    0.25}, -- placeholder: the NightElf icon
+	["ETHEREAL_MALE"]             = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon
+	["KYRIAN_MALE"]               = {0.78125, 0.8125,  0,    0.25}, -- Esteria's Kyrian icon
+	["MANTID_MALE"]               = {0,       0.03125, 0.25, 0.5}, -- placeholder: the Tauren icon
+	["VENTHYR_MALE"]              = {0.8125,  0.84375, 0,    0.25}, -- Esteria's Venthyr icon
+	["BANSHEE_MALE"]              = {0.03125, 0.0625,  0.75, 1.0}, -- placeholder: the female Undead icon (one female body)
+	["FACELESSONE_MALE"]          = {0.09375, 0.125,   0.25, 0.5}, -- placeholder: the Orc icon
+	["THINHUMAN_MALE"]            = {0.6875,  0.71875, 0,    0.25}, -- Kalibro's Thin Human icon
+	["CULTIST_MALE"]              = {0,       0.03125, 0,    0.25}, -- placeholder: the Human icon
+	["MANARI_MALE"]               = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon
+	["SETHRAK_MALE"]          = {0.84375, 0.875,   0,    0.25}, -- Ilusixn's CoA 1.9.9 icon
+	["SUREKI_MALE"]               = {0.09375, 0.125,   0,    0.25}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["DREADLORD_MALE"]            = {0.03125, 0.0625,  0.25,  0.5}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["TITAN_MALE"]                = {0.03125, 0.0625,  0,    0.25}, -- placeholder: the Dwarf icon -- CoA 1.9.9
+	["FUNGARIAN_MALE"]            = {0.09375, 0.125,   0,    0.25}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["SABERON_MALE"]          = {0.90625, 0.9375,  0,    0.25}, -- Ilusixn's CoA 1.9.9 icon
+	["DRAKONID_MALE"]         = {0.9375,  0.96875, 0.25, 0.5}, -- Ilusixn's CoA 1.9.9 icon
+	["SPORELING_MALE"]            = {0.0625,  0.09375, 0,    0.25}, -- placeholder: the Gnome icon -- CoA 1.9.9
+	["STORMFORGED_MALE"]          = {0.03125, 0.0625,  0,    0.25}, -- placeholder: the Dwarf icon -- CoA 1.9.9
+	["MOARG_MALE"]                = {0.09375, 0.125,   0.25,  0.5}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["NERUBIAN_MALE"]             = {0.03125, 0.0625,  0.25,  0.5}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["LICH_MALE"]                 = {0.03125, 0.0625,  0.25,  0.5}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["MOGU_MALE"]                 = {0.09375, 0.125,   0.25,  0.5}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["LOSTONE_MALE"]              = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon -- CoA 1.9.9
+	["DRAKKIN_MALE"]          = {0.875,   0.90625, 0,    0.25}, -- Ilusixn's CoA 1.9.9 icon
+	["ALLIANCEORC_MALE"]          = {0.09375, 0.125,   0.25,  0.5}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["HARPY_MALE"]                = {0.125,   0.15625, 0.25,  0.5}, -- placeholder: the Bloodelf icon -- CoA 1.9.9
+	["ILLIDARIBLOODELF_MALE"]     = {0.125,   0.15625, 0.25,  0.5}, -- placeholder: the Bloodelf icon -- CoA 1.9.9
+	["ILLIDARINIGHTELF_MALE"]     = {0.09375, 0.125,   0,    0.25}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["JINYU_MALE"]                = {0.125,   0.15625, 0,    0.25}, -- placeholder: the Draenei icon -- CoA 1.9.9
+	["TWOHEADEDOGRE_MALE"]        = {0.5,     0.53125, 0.25,  0.5}, -- placeholder: the Ogre icon -- CoA 1.9.9
+	["GRUMMLE_MALE"]              = {0.0625,  0.09375, 0,    0.25}, -- placeholder: the Gnome icon -- CoA 1.9.9
+	["ELUNECHOSEN_MALE"]          = {0.21875, 0.25,    0.25,  0.5}, -- placeholder: the Nightborne icon -- CoA 1.9.9
+
+	["HUMAN_FEMALE"]              = {0,       0.03125, 0.5,  0.75},
+	["GILNEAN_FEMALE"]            = {0,       0.03125, 0.5,  0.75},
+	["DWARF_FEMALE"]              = {0.03125, 0.0625,  0.5,  0.75},
+	["GNOME_FEMALE"]              = {0.0625,  0.09375, 0.5,  0.75},
+	["NIGHTELF_FEMALE"]           = {0.09375, 0.125,   0.5,  0.75},
+	["DRAENEI_FEMALE"]            = {0.125,   0.15625, 0.5,  0.75},
+	["WORGEN_FEMALE"]             = {0.15625, 0.1875,  0.5,  0.75},
+	["ALLIANCEPANDAREN_FEMALE"]   = {0.1875,  0.21875, 0.5,  0.75},
+	["VOIDELF_FEMALE"]            = {0.21875, 0.25,    0.5,  0.75},
+	["LIGHTFORGEDDRAENEI_FEMALE"] = {0.25,    0.28125, 0.5,  0.75},
+	["KULTIRAN_FEMALE"]           = {0.28125, 0.3125,  0.5,  0.75},
+	["DARKIRONDWARF_FEMALE"]      = {0.3125,  0.34375, 0.5,  0.75},
+	["MECHAGNOME_FEMALE"]         = {0.34375, 0.375,   0.5,  0.75},
+	["ALLIANCEDRACTHYR_FEMALE"]   = {0.375,   0.40625, 0.5,  0.75},
+	["ALLIANCEEARTHEN_FEMALE"]    = {0.40625, 0.4375,  0.5,  0.75},
+	["ALLIANCEHARANIR_FEMALE"]    = {0.4375,  0.46875, 0.5,  0.75},
+	["ALLIANCESKYBORNE_FEMALE"]   = {0.46875, 0.5,     0.5,  0.75},
+	["HIGHELF_FEMALE"]            = {0.5,     0.53125, 0.5,  0.75},
+	["BROKEN_FEMALE"]             = {0.53125, 0.5625,  0.5,  0.75},
+	["FURBOLG_FEMALE"]            = {0.5625,  0.59375, 0.5,  0.75},
+	["VRYKUL_FEMALE"]             = {0.59375, 0.625,   0.5,  0.75},
+	["TUSKARR_FEMALE"]            = {0.625,  0.65625,  0.5,  0.75},
+
+	["TAUREN_FEMALE"]             = {0,       0.03125, 0.75,  1.0},
+	["SCOURGE_FEMALE"]            = {0.03125, 0.0625,  0.75,  1.0},
+	["TROLL_FEMALE"]              = {0.0625,  0.09375, 0.75,  1.0},
+	["ORC_FEMALE"]                = {0.09375, 0.125,   0.75,  1.0},
+	["BLOODELF_FEMALE"]           = {0.125,   0.15625, 0.75,  1.0},
+	["GOBLIN_FEMALE"]             = {0.15625, 0.1875,  0.75,  1.0},
+	["HORDEPANDAREN_FEMALE"]      = {0.1875,  0.21875, 0.75,  1.0},
+	["NIGHTBORNE_FEMALE"]         = {0.21875, 0.25,    0.75,  1.0},
+	["HIGHMOUNTAINTAUREN_FEMALE"] = {0.25,    0.28125, 0.75,  1.0},
+	["ZANDALARITROLL_FEMALE"]     = {0.28125, 0.3125,  0.75,  1.0},
+	["VULPERA_FEMALE"]            = {0.3125,  0.34375, 0.75,  1.0},
+	["MAGHAR_FEMALE"]             = {0.34375, 0.375,   0.75,  1.0},
+	["HORDEDRACTHYR_FEMALE"]      = {0.375,   0.40625, 0.75,  1.0},
+	["HORDEEARTHEN_FEMALE"]       = {0.40625, 0.4375,  0.75,  1.0},
+	["HORDEHARANIR_FEMALE"]       = {0.4375,  0.46875, 0.75,  1.0},
+	["HORDESKYBORNE_FEMALE"]      = {0.46875, 0.5,     0.75,  1.0},
+	["OGRE_FEMALE"]               = {0.5,     0.53125, 0.75,  1.0},
+	["NAGA_FEMALE"]               = {0.53125, 0.5625,  0.75,  1.0},
+	["MURLOC_FEMALE"]             = {0.5625,  0.59375, 0.75,  1.0},
+	["TAUNKA_FEMALE"]             = {0.59375, 0.625,   0.75,  1.0},
+	["DARKFALLEN_FEMALE"]         = {0.625,   0.65625, 0.75,  1.0},
+	["SLIMEGIANT_FEMALE"]         = {0.03125, 0.0625,  0.25,  0.5}, -- male-only race: the male icon
+	["FELORC_FEMALE"]             = {0.09375, 0.125,   0.75, 1}, -- placeholder: the Orc icon
+	["SKELETON_FEMALE"]           = {0.03125, 0.0625,  0.75, 1}, -- placeholder: the Scourge icon
+	["FORESTTROLL_FEMALE"]        = {0.0625,  0.09375, 0.25, 0.5}, -- male-only race: the male icon
+	["NORTHRENDSKELETON_FEMALE"]  = {0.03125, 0.0625,  0.25, 0.5}, -- male-only race: the male icon
+	["ICETROLL_FEMALE"]           = {0.0625,  0.09375, 0.25, 0.5}, -- male-only race: the male icon
+	["QIRAJI_FEMALE"]             = {0.09375, 0.125,   0.75, 1}, -- placeholder: the Orc icon
+	["EREDAR_FEMALE"]             = {0.65625, 0.6875,  0.5,  0.75}, -- Kalibro's Eredar icon
+	["ARAKKOA_FEMALE"]            = {0.125,   0.15625, 0,    0.25}, -- male-only race: the male icon
+	["FELELF_FEMALE"]             = {0.125,   0.15625, 0.75, 1.0}, -- placeholder: the BloodElf icon
+	["QUILLBOAR_FEMALE"]          = {0,       0.03125, 0.75, 1.0}, -- placeholder: the Tauren icon
+	["CENTAUR_FEMALE"]            = {0.75,    0.78125, 0.5,  0.75}, -- Esteria's Centaur icon
+	["DEMON_FEMALE"]              = {0.125,   0.15625, 0.25, 0.5}, -- male-only race: the male icon
+	["SATYR_FEMALE"]              = {0.09375, 0.125,   0.5,  0.75}, -- placeholder: the NightElf icon
+	["GNOLL_FEMALE"]              = {0.71875, 0.75,    0.5,  0.75}, -- Esteria's Gnoll icon
+	["BEHOLDER_FEMALE"]           = {0.0625,  0.09375, 0,    0.25}, -- male-only race: the male icon
+	["SHIVAN_FEMALE"]             = {0.125,   0.15625, 0,    0.25}, -- male-only race: the male icon
+	["HOZEN_FEMALE"]              = {0,       0.03125, 0,    0.25}, -- male-only race: the male icon
+	["SYLVARI_FEMALE"]            = {0.09375, 0.125,   0.5,  0.75}, -- placeholder: the NightElf icon
+	["ETHEREAL_FEMALE"]           = {0.125,   0.15625, 0,    0.25}, -- male-only race: the male icon
+	["KYRIAN_FEMALE"]             = {0.78125, 0.8125,  0.5,  0.75}, -- Esteria's Kyrian icon
+	["MANTID_FEMALE"]             = {0,       0.03125, 0.25, 0.5}, -- male-only race: the male icon
+	["VENTHYR_FEMALE"]            = {0.8125,  0.84375, 0.5,  0.75}, -- Esteria's Venthyr icon
+	["BANSHEE_FEMALE"]            = {0.03125, 0.0625,  0.75, 1.0}, -- placeholder: the Undead icon
+	["FACELESSONE_FEMALE"]        = {0.09375, 0.125,   0.25, 0.5}, -- male-only race: the male icon
+	["THINHUMAN_FEMALE"]          = {0.6875,  0.71875, 0.5,  0.75}, -- Kalibro's Thin Human icon
+	["CULTIST_FEMALE"]            = {0,       0.03125, 0.5,  0.75}, -- placeholder: the Human icon
+	["MANARI_FEMALE"]             = {0.125,   0.15625, 0.5,  0.75}, -- placeholder: the Draenei icon
+	["SETHRAK_FEMALE"]        = {0.84375, 0.875,   0.5,  0.75}, -- Ilusixn's CoA 1.9.9 icon
+	["SUREKI_FEMALE"]             = {0.09375, 0.125,   0.5,  0.75}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["DREADLORD_FEMALE"]          = {0.03125, 0.0625,  0.75,  1.0}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["TITAN_FEMALE"]              = {0.03125, 0.0625,  0.5,  0.75}, -- placeholder: the Dwarf icon -- CoA 1.9.9
+	["FUNGARIAN_FEMALE"]          = {0.09375, 0.125,   0.5,  0.75}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["SABERON_FEMALE"]        = {0.90625, 0.9375,  0.5,  0.75}, -- Ilusixn's CoA 1.9.9 icon (the male one)
+	["DRAKONID_FEMALE"]       = {0.9375,  0.96875, 0.75, 1}, -- Ilusixn's CoA 1.9.9 icon
+	["SPORELING_FEMALE"]          = {0.0625,  0.09375, 0.5,  0.75}, -- placeholder: the Gnome icon -- CoA 1.9.9
+	["STORMFORGED_FEMALE"]        = {0.03125, 0.0625,  0.5,  0.75}, -- placeholder: the Dwarf icon -- CoA 1.9.9
+	["MOARG_FEMALE"]              = {0.09375, 0.125,   0.75,  1.0}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["NERUBIAN_FEMALE"]           = {0.03125, 0.0625,  0.75,  1.0}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["LICH_FEMALE"]               = {0.03125, 0.0625,  0.75,  1.0}, -- placeholder: the Scourge icon -- CoA 1.9.9
+	["MOGU_FEMALE"]               = {0.09375, 0.125,   0.75,  1.0}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["LOSTONE_FEMALE"]            = {0.125,   0.15625, 0.5,  0.75}, -- placeholder: the Draenei icon -- CoA 1.9.9
+	["DRAKKIN_FEMALE"]        = {0.875,   0.90625, 0.5,  0.75}, -- Ilusixn's CoA 1.9.9 icon
+	["ALLIANCEORC_FEMALE"]        = {0.09375, 0.125,   0.75,  1.0}, -- placeholder: the Orc icon -- CoA 1.9.9
+	["HARPY_FEMALE"]              = {0.125,   0.15625, 0.75,  1.0}, -- placeholder: the Bloodelf icon -- CoA 1.9.9
+	["ILLIDARIBLOODELF_FEMALE"]   = {0.125,   0.15625, 0.75,  1.0}, -- placeholder: the Bloodelf icon -- CoA 1.9.9
+	["ILLIDARINIGHTELF_FEMALE"]   = {0.09375, 0.125,   0.5,  0.75}, -- placeholder: the Nightelf icon -- CoA 1.9.9
+	["JINYU_FEMALE"]              = {0.125,   0.15625, 0.5,  0.75}, -- placeholder: the Draenei icon -- CoA 1.9.9
+	["TWOHEADEDOGRE_FEMALE"]      = {0.5,     0.53125, 0.75,  1.0}, -- placeholder: the Ogre icon -- CoA 1.9.9
+	["GRUMMLE_FEMALE"]            = {0.0625,  0.09375, 0.5,  0.75}, -- placeholder: the Gnome icon -- CoA 1.9.9
+	["ELUNECHOSEN_FEMALE"]        = {0.21875, 0.25,    0.75,  1.0}, -- placeholder: the Nightborne icon -- CoA 1.9.9
+};
+
+-- Race grid: icons at 75% size, three columns per faction (38px icons 4px
+-- apart, rows 1px apart, before scaling). CharacterCreateEnumerateRaces places
+-- the buttons, replacing their anchors in CharacterCreate.xml. Positions are in
+-- the parent's units; the scale is applied to them when the buttons are placed.
+RACE_GRID_SCALE = 0.75;
+RACE_GRID_TOP = -50;
+RACE_GRID_ROW_HEIGHT = 29.25;
+RACE_GRID_MAX_ROWS = 22;
+RACE_GRID_COLUMNS = {
+	Alliance = { -96.15, -64.65, -33.15 },
+	Horde = { 33.15, 64.65, 96.15 },
+};
+
+-- Display order of the races, independent of whatever order GetAvailableRaces()
+-- returns them in. Add new races here as you add them to your DBCs. Only the
+-- relative order counts: races the DBCs don't have are skipped, and which
+-- column a race goes in comes from its faction (see CharacterCreateEnumerateRaces).
+RACE_VISUAL_SLOTS = {
+	["HUMAN"]                              = 1,
+	["DWARF"]                              = 2,
+	["NIGHTELF"]                           = 3,
+	["GNOME"]                              = 4,
+	["DRAENEI"]                            = 5,
+	["WORGEN"]                             = 6,
+	["ALLIANCEPANDAREN"]                   = 7,
+	["VOIDELF"]                            = 8,
+	["LIGHTFORGEDDRAENEI"]                 = 9,
+	["KULTIRAN"]                           = 10,
+	["DARKIRONDWARF"]                      = 11,
+	["MECHAGNOME"]                         = 12,
+	["ALLIANCEDRACTHYR"]                   = 13,
+	["ALLIANCEEARTHEN"]                    = 14,
+	["ALLIANCEHARANIR"]                    = 15,
+	["ALLIANCESKYBORNE"]                   = 16,
+	["HIGHELF"]                            = 17,
+	["BROKEN"]                             = 18,
+	["FURBOLG"]                            = 19,
+	["THINHUMAN"]                          = 20, -- was Gilnean, now only Worgen's altered form (F-027)
+	["VRYKUL"]                             = 21,
+	["TUSKARR"]                            = 22,
+	["ORC"]                                = 23,
+	["SCOURGE"]                            = 24,
+	["TAUREN"]                             = 25,
+	["TROLL"]                              = 26,
+	["BLOODELF"]                           = 27,
+	["GOBLIN"]                             = 28,
+	["HORDEPANDAREN"]                      = 29,
+	["NIGHTBORNE"]                         = 30,
+	["HIGHMOUNTAINTAUREN"]                 = 31,
+	["ZANDALARITROLL"]                     = 32,
+	["VULPERA"]                            = 33,
+	["MAGHAR"]                             = 34,
+	["HORDEDRACTHYR"]                      = 35,
+	["HORDEEARTHEN"]                       = 36,
+	["HORDEHARANIR"]                       = 37,
+	["HORDESKYBORNE"]                      = 38,
+	["OGRE"]                               = 39,
+	["NAGA"]                               = 40,
+	["MURLOC"]                             = 41,
+	["TAUNKA"]                             = 42,
+	["DARKFALLEN"]                         = 43,
+	["SLIMEGIANT"]                         = 44,
+	["EREDAR"]                             = 45,
+	["ARAKKOA"]                            = 46,
+	["FELORC"]                             = 47,
+	["SKELETON"]                           = 48,
+	["FORESTTROLL"]                        = 49,
+	["ICETROLL"]                           = 50,
+	["SATYR"]                              = 51,
+	["GNOLL"]                              = 52,
+	["BEHOLDER"]                           = 53,
+	["SHIVAN"]                             = 54,
+	["NORTHRENDSKELETON"]                  = 55,
+	["QIRAJI"]                             = 56,
+	["FELELF"]                             = 57,
+	["QUILLBOAR"]                          = 58,
+	["CENTAUR"]                            = 59,
+	["DEMON"]                              = 60,
+	["HOZEN"]                              = 61,
+	["SYLVARI"]                            = 62,
+	["ETHEREAL"]                           = 63,
+	["KYRIAN"]                             = 64,
+	["MANTID"]                             = 65,
+	["VENTHYR"]                            = 66,
+	["BANSHEE"]                            = 67,
+	["FACELESSONE"]                        = 68,
+	["CULTIST"]                            = 69, -- Horde (Alpha-Worgen package races)
+	["MANARI"]                             = 70,
+	["SETHRAK"]                            = 71, -- CoA 1.9.9
+	["SUREKI"]                             = 72, -- CoA 1.9.9
+	["DREADLORD"]                          = 73, -- CoA 1.9.9
+	["TITAN"]                              = 74, -- CoA 1.9.9
+	["FUNGARIAN"]                          = 75, -- CoA 1.9.9
+	["SABERON"]                            = 76, -- CoA 1.9.9
+	["DRAKONID"]                           = 77, -- CoA 1.9.9
+	["SPORELING"]                          = 78, -- CoA 1.9.9
+	["STORMFORGED"]                        = 79, -- CoA 1.9.9
+	["MOARG"]                              = 80, -- CoA 1.9.9
+	["NERUBIAN"]                           = 81, -- CoA 1.9.9
+	["LICH"]                               = 82, -- CoA 1.9.9
+	["MOGU"]                               = 83, -- CoA 1.9.9
+	["LOSTONE"]                            = 84, -- CoA 1.9.9
+	["DRAKKIN"]                            = 85, -- CoA 1.9.9
+	["ALLIANCEORC"]                        = 86, -- CoA 1.9.9
+	["HARPY"]                              = 87, -- CoA 1.9.9
+	["ILLIDARIBLOODELF"]                   = 88, -- CoA 1.9.9
+	["ILLIDARINIGHTELF"]                   = 89, -- CoA 1.9.9
+	["JINYU"]                              = 90, -- CoA 1.9.9
+	["TWOHEADEDOGRE"]                      = 91, -- CoA 1.9.9
+	["GRUMMLE"]                            = 92, -- CoA 1.9.9
+	["ELUNECHOSEN"]                        = 93, -- CoA 1.9.9
+};
+
+-- Safe accessor for RACE_ICON_TCOORDS: falls back to the human icon instead
+-- of returning nil, so a race with a missing/misnamed icon entry just shows
+-- a placeholder icon instead of throwing a Lua error and aborting whatever
+-- function called it (which is what silently broke every race after the
+-- broken one previously).
+function GetSafeRaceIconCoords(fileString, gender)
+	local key = strupper((fileString or "HUMAN").."_"..(gender or "MALE"));
+	return RACE_ICON_TCOORDS[key] or RACE_ICON_TCOORDS["HUMAN_"..(gender or "MALE")];
+end
+CLASS_ICON_TCOORDS = {
+	["WARRIOR"]	              = {0, 0.25, 0, 0.25},
+	["MAGE"]	              = {0.25, 0.49609375, 0, 0.25},
+	["ROGUE"]	              = {0.49609375, 0.7421875, 0, 0.25},
+	["DRUID"]	              = {0.7421875, 0.98828125, 0, 0.25},
+	["HUNTER"]	              = {0, 0.25, 0.25, 0.5},
+	["SHAMAN"]	              = {0.25, 0.49609375, 0.25, 0.5},
+	["PRIEST"]	              = {0.49609375, 0.7421875, 0.25, 0.5},
+	["WARLOCK"]	              = {0.7421875, 0.98828125, 0.25, 0.5},
+	["PALADIN"]	              = {0, 0.25, 0.5, 0.75},
+	["DEATHKNIGHT"]	          = {0.25, 0.49609375, 0.5, 0.75},
+};
+
+function CharacterCreate_OnLoad(self)
+	self:SetSequence(0);
+	self:SetCamera(0);
+
+	CharacterCreate.numRaces = 0;
+	CharacterCreate.selectedRace = 0;
+	CharacterCreate.numClasses = 0;
+	CharacterCreate.selectedClass = 0;
+	CharacterCreate.selectedGender = 0;
+
+	SetCharCustomizeFrame("CharacterCreate");
+
+	for i=1, NUM_CHAR_CUSTOMIZATIONS, 1 do
+		_G["CharacterCustomizationButtonFrame"..i.."Text"]:SetText(_G["CHAR_CUSTOMIZATION"..i.."_DESC"]);
+	end
+
+	-- Color edit box backdrop
+	local backdropColor = FACTION_BACKDROP_COLOR_TABLE["Alliance"];
+	CharacterCreateNameEdit:SetBackdropBorderColor(backdropColor[1], backdropColor[2], backdropColor[3]);
+	CharacterCreateNameEdit:SetBackdropColor(backdropColor[4], backdropColor[5], backdropColor[6]);
+end
+
+function CharacterCreate_OnShow()
+	for i=1, MAX_CLASSES_PER_RACE, 1 do
+		local button = _G["CharacterCreateClassButton"..i];
+		button:Enable();
+		SetButtonDesaturated(button, false)
+	end
+	for i=1, MAX_RACES, 1 do
+		local button = _G["CharacterCreateRaceButton"..i];
+		button:Enable();
+		SetButtonDesaturated(button, false)
+	end
+
+	if ( PAID_SERVICE_TYPE ) then
+		CustomizeExistingCharacter( PAID_SERVICE_CHARACTER_ID );
+		CharacterCreateNameEdit:SetText( PaidChange_GetName() );
+	else
+		--randomly selects a combination
+		ResetCharCustomize();
+		CharacterCreateNameEdit:SetText("");
+		CharCreateRandomizeButton:Show();
+	end
+
+	CharacterCreateEnumerateRaces(GetAvailableRaces());
+	SetCharacterRace(GetSelectedRace());
+	
+	CharacterCreateEnumerateClasses(GetAvailableClasses());
+	local_,_,index = GetSelectedClass();
+	SetCharacterClass(index);
+
+	SetCharacterGender(GetSelectedSex())
+	
+	-- Hair customization stuff
+	CharacterCreate_UpdateHairCustomization();
+
+	SetCharacterCreateFacing(-15);
+	
+	if ( ALLOW_RANDOM_NAME_BUTTON ) then
+		CharacterCreateRandomName:Show();
+	end
+	
+	-- setup customization
+	CharacterChangeFixup();
+end
+
+function CharacterCreate_OnHide()
+	PAID_SERVICE_CHARACTER_ID = nil;
+	PAID_SERVICE_TYPE = nil;
+end
+
+function CharacterCreateFrame_OnMouseDown(button)
+	if ( button == "LeftButton" ) then
+		CHARACTER_CREATE_ROTATION_START_X = GetCursorPosition();
+		CHARACTER_CREATE_INITIAL_FACING = GetCharacterCreateFacing();
+	end
+end
+
+function CharacterCreateFrame_OnMouseUp(button)
+	if ( button == "LeftButton" ) then
+		CHARACTER_CREATE_ROTATION_START_X = nil
+	end
+end
+
+function CharacterCreateFrame_OnUpdate()
+	if ( CHARACTER_CREATE_ROTATION_START_X ) then
+		local x = GetCursorPosition();
+		local diff = (x - CHARACTER_CREATE_ROTATION_START_X) * CHARACTER_ROTATION_CONSTANT;
+		CHARACTER_CREATE_ROTATION_START_X = GetCursorPosition();
+		SetCharacterCreateFacing(GetCharacterCreateFacing() + diff);
+	end
+end
+
+function CharacterCreateEnumerateRaces(...)
+	CharacterCreate.numRaces = select("#", ...)/3;
+	-- More races than CharacterCreate.xml has buttons for: make the rest.
+	while ( CharacterCreate.numRaces > MAX_RACES ) do
+		MAX_RACES = MAX_RACES + 1;
+		local button = CreateFrame("CheckButton", "CharacterCreateRaceButton"..MAX_RACES, CharacterCreateRaceButton1:GetParent(), "CharacterCreateRaceButtonTemplate");
+		button:SetID(MAX_RACES);
+	end
+	local gender;
+	local selectedSex = GetSelectedSex();
+	if ( selectedSex == SEX_MALE ) then
+		gender = "MALE";
+	elseif ( selectedSex == SEX_FEMALE ) then
+		gender = "FEMALE";
+	end
+
+	-- Start clean: hide every button first, and forget its race, so a button
+	-- left unused below can't be mistaken for a selected race.
+	for i=1, MAX_RACES, 1 do
+		local button = _G["CharacterCreateRaceButton"..i];
+		button:Hide();
+		button.raceIndex = nil;
+	end
+
+	-- realIndex is the race's position in the sequence GetAvailableRaces()
+	-- handed us -- this is what SetSelectedRace()/SetCharacterRace() expect
+	-- to receive, and it can differ from the button's position.
+	local factionRaces = { Alliance = {}, Horde = {} };
+
+	for i=1, select("#", ...), 3 do
+		local realIndex = (i - 1)/3 + 1;
+		local raceName   = select(i, ...);
+		local fileString = select(i+1, ...);
+		local enabled    = select(i+2, ...);
+		local _, faction = GetFactionForRace(realIndex);
+		-- A race we haven't added to RACE_VISUAL_SLOTS yet goes after the
+		-- listed ones rather than vanishing.
+		local order = RACE_VISUAL_SLOTS[strupper(fileString)] or (MAX_RACES + realIndex);
+		local races = factionRaces[faction] or factionRaces.Alliance;
+		table.insert(races, {realIndex, raceName, fileString, enabled, order});
+	end
+
+	-- Pack each faction into its own columns, so races this patch doesn't have
+	-- leave no holes in the grid. Any button will do: they're all placed here.
+	local slotData = {};
+	local slot = 0;
+	for _, faction in ipairs({ "Alliance", "Horde" }) do
+		local races = factionRaces[faction];
+		local columns = RACE_GRID_COLUMNS[faction];
+		table.sort(races, function(a, b) return a[5] < b[5]; end);
+		for position, data in ipairs(races) do
+			if ( position > #columns * RACE_GRID_MAX_ROWS ) then
+				message("Too many "..faction.." races!  They don't fit the race grid");
+				break;
+			end
+			slot = slot + 1;
+			slotData[slot] = data;
+			local button = _G["CharacterCreateRaceButton"..slot];
+			local column = (position - 1) % #columns + 1;
+			local row = math.floor((position - 1) / #columns);
+			button:SetScale(RACE_GRID_SCALE);
+			button:ClearAllPoints();
+			button:SetPoint("TOP", button:GetParent(), "TOP", columns[column] / RACE_GRID_SCALE, (RACE_GRID_TOP - row * RACE_GRID_ROW_HEIGHT) / RACE_GRID_SCALE);
+		end
+	end
+
+	for slot=1, MAX_RACES, 1 do
+		local data = slotData[slot];
+		if ( data ) then
+			local realIndex, raceName, fileString, enabled = data[1], data[2], data[3], data[4];
+			local coords = GetSafeRaceIconCoords(fileString, gender);
+			local button = _G["CharacterCreateRaceButton"..slot];
+			_G["CharacterCreateRaceButton"..slot.."NormalTexture"]:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+			_G["CharacterCreateRaceButton"..slot.."PushedTexture"]:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+			button.raceIndex = realIndex;
+			button:Show();
+			_G["CharacterCreateRaceButton"..slot.."Text"]:SetPoint("CENTER", UIParent, "CENTER", -10000, -10000);
+			if ( enabled == 1 ) then
+				button.enable = true;
+				SetButtonDesaturated(button);
+				button.name = raceName;
+				button.tooltip = raceName;
+			else
+				button.enable = false;
+				SetButtonDesaturated(button, 1);
+				button.name = raceName;
+				button.tooltip = _G[strupper(fileString).."_DISABLED"];
+			end
+		end
+	end
+end
+
+function CharacterCreateEnumerateClasses(...)
+	CharacterCreate.numClasses = select("#", ...)/3;
+	if ( CharacterCreate.numClasses > MAX_CLASSES_PER_RACE ) then
+		message("Too many classes!  Update MAX_CLASSES_PER_RACE");
+		return;
+	end
+	local coords;
+	local index = 1;
+	local button;
+	for i=1, select("#", ...), 3 do
+		coords = CLASS_ICON_TCOORDS[strupper(select(i+1, ...))];
+		_G["CharacterCreateClassButton"..index.."NormalTexture"]:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+		_G["CharacterCreateClassButton"..index.."PushedTexture"]:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+		button = _G["CharacterCreateClassButton"..index];
+		button:Show();
+		if ( (select(i+2, ...) == 1) and (IsRaceClassValid(CharacterCreate.selectedRace, index)) ) then
+			button.enable = true;
+			button:Enable();
+			SetButtonDesaturated(button);
+			button.name = select(i, ...)
+			button.tooltip = select(i, ...);
+			_G["CharacterCreateClassButton"..index.."DisableTexture"]:Hide();
+		else
+			button.enable = false;
+			button:Disable();
+			SetButtonDesaturated(button, 1);
+			button.name = select(i, ...)
+			button.tooltip = _G[strupper(select(i+1, ...).."_".."DISABLED")];
+			_G["CharacterCreateClassButton"..index.."DisableTexture"]:Show();
+		end
+		index = index + 1;
+	end
+	for i=CharacterCreate.numClasses + 1, MAX_CLASSES_PER_RACE, 1 do
+		_G["CharacterCreateClassButton"..i]:Hide();
+	end
+end
+
+function SetCharacterRace(id)
+	CharacterCreate.selectedRace = id;
+	local selectedButton;
+	for i=1, MAX_RACES, 1 do
+		local button = _G["CharacterCreateRaceButton"..i];
+		if ( button.raceIndex == id ) then
+			_G["CharacterCreateRaceButton"..i.."Text"]:SetText(button.name); -- _G["CharacterCreateRaceButton"..i.."Text"]:SetText(button.name);
+			button:SetChecked(1);
+			selectedButton = button;
+		else
+			_G["CharacterCreateRaceButton"..i.."Text"]:SetText("");
+			button:SetChecked(0);
+		end
+	end
+
+	-- Set Faction
+	local name, faction = GetFactionForRace(CharacterCreate.selectedRace);
+
+	-- Set Race
+	local race, fileString = GetNameForRace();
+
+	CharacterCreateRaceLabel:SetText(race);
+	fileString = strupper(fileString);
+	if ( GetSelectedSex() == SEX_MALE ) then
+		gender = "MALE";
+	else
+		gender = "FEMALE";
+	end
+	local coords = GetSafeRaceIconCoords(fileString, gender);
+	CharacterCreateRaceIcon:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+	local raceText = _G["RACE_INFO_"..fileString];
+	local abilityIndex = 1;
+	local tempText = _G["ABILITY_INFO_"..fileString..abilityIndex];
+	abilityText = "";
+	while ( tempText ) do
+		abilityText = abilityText..tempText.."\n\n";
+		abilityIndex = abilityIndex + 1;
+		tempText = _G["ABILITY_INFO_"..fileString..abilityIndex];
+	end
+
+	CharacterCreateRaceScrollFrameScrollBar:SetValue(0);
+	CharacterCreateRaceText:SetText(GetFlavorText("RACE_INFO_"..strupper(fileString), GetSelectedSex()).."|n|n");
+	if ( abilityText and abilityText ~= "" ) then
+		CharacterCreateRaceAbilityText:SetText(abilityText);
+	else
+		CharacterCreateRaceAbilityText:SetText("");
+	end
+
+	-- Set backdrop colors based on faction
+	local backdropColor = FACTION_BACKDROP_COLOR_TABLE[faction];
+	local frame;
+	for index, value in pairs(FRAMES_TO_BACKDROP_COLOR) do
+		frame = _G[value];
+		frame:SetBackdropColor(backdropColor[4], backdropColor[5], backdropColor[6]);
+	end
+	CharacterCreateConfigurationBackground:SetVertexColor(backdropColor[4], backdropColor[5], backdropColor[6]);
+
+	local backgroundFilename, backgroundRace = GetCreateBackgroundModel();
+	SetBackgroundModel(CharacterCreate, backgroundFilename, backgroundRace);
+end
+
+function SetCharacterClass(id)
+	CharacterCreate.selectedClass = id;
+	for i=1, CharacterCreate.numClasses, 1 do
+		local button = _G["CharacterCreateClassButton"..i];
+		if ( i == id ) then
+			CharacterCreateClassName:SetText(button.name);
+			button:SetChecked(1);
+		else
+			button:SetChecked(0);
+		end
+	end
+
+	local className, classFileName, _, tank, healer, damage = GetSelectedClass();
+	local abilityIndex = 0;
+	local tempText = _G["CLASS_INFO_"..classFileName..abilityIndex];
+	abilityText = "";
+	while ( tempText ) do
+		abilityText = abilityText..tempText.."\n\n";
+		abilityIndex = abilityIndex + 1;
+		tempText = _G["CLASS_INFO_"..classFileName..abilityIndex];
+	end
+	local coords = CLASS_ICON_TCOORDS[classFileName];
+	CharacterCreateClassIcon:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+	CharacterCreateClassLabel:SetText(className);
+	CharacterCreateClassRolesText:SetText(abilityText);	
+	CharacterCreateClassText:SetText(GetFlavorText("CLASS_"..strupper(classFileName), GetSelectedSex()).."|n|n");
+	CharacterCreateClassScrollFrameScrollBar:SetValue(0);
+end
+
+function CharacterCreate_OnChar()
+end
+
+function CharacterCreate_OnKeyDown(key)
+	if ( key == "ESCAPE" ) then
+		CharacterCreate_Back();
+	elseif ( key == "ENTER" ) then
+		CharacterCreate_Okay();
+	elseif ( key == "PRINTSCREEN" ) then
+		Screenshot();
+	end
+end
+
+function CharacterCreate_UpdateModel(self)
+	UpdateCustomizationScene();
+	self:AdvanceTime();
+end
+
+function CharacterCreate_Okay()
+	if ( PAID_SERVICE_TYPE ) then
+		GlueDialog_Show("CONFIRM_PAID_SERVICE");
+	else
+		CreateCharacter(CharacterCreateNameEdit:GetText());
+	end
+	PlaySound("gsCharacterCreationCreateChar");
+end
+
+function CharacterCreate_Back()
+	PlaySound("gsCharacterCreationCancel");
+	SetGlueScreen("charselect");
+end
+
+function CharacterClass_OnClick(id)
+	PlaySound("gsCharacterCreationClass");
+	local _,_,currClass = GetSelectedClass();
+	if ( currClass ~= id and IsRaceClassValid(GetSelectedRace(), id) ) then
+		SetSelectedClass(id);
+		SetCharacterClass(id);
+	 	SetCharacterRace(GetSelectedRace());
+		CharacterChangeFixup();
+	end
+end
+
+function CharacterRace_OnClick(self, id)
+	PlaySound("gsCharacterCreationClass");
+	if ( not self:GetChecked() ) then
+		self:SetChecked(1);
+		return;
+	end
+	if ( GetSelectedRace() ~= id ) then
+		SetSelectedRace(id);
+		SetCharacterRace(id);
+		SetSelectedSex(GetSelectedSex());
+		SetCharacterCreateFacing(-15);
+		CharacterCreateEnumerateClasses(GetAvailableClasses());
+		local _,_,classIndex = GetSelectedClass();
+		if ( PAID_SERVICE_TYPE ) then
+			classIndex = PaidChange_GetCurrentClassIndex();
+		end
+		SetCharacterClass(classIndex);
+		
+		-- Hair customization stuff
+		CharacterCreate_UpdateHairCustomization();
+			
+		CharacterChangeFixup();
+	end
+end
+
+function SetCharacterGender(sex)
+	local gender;
+	SetSelectedSex(sex);
+	if ( sex == SEX_MALE ) then
+		gender = "MALE";
+		CharacterCreateGender:SetText(MALE);
+		CharacterCreateGenderButtonMale:SetChecked(1);
+		CharacterCreateGenderButtonFemale:SetChecked(nil);
+	elseif ( sex == SEX_FEMALE ) then
+		gender = "FEMALE";
+		CharacterCreateGender:SetText(FEMALE);
+		CharacterCreateGenderButtonMale:SetChecked(nil);
+		CharacterCreateGenderButtonFemale:SetChecked(1);
+	end
+
+	-- Update race images to reflect gender
+	CharacterCreateEnumerateRaces(GetAvailableRaces());
+	CharacterCreateEnumerateClasses(GetAvailableClasses());
+ 	SetCharacterRace(GetSelectedRace());
+	
+	local _,_,classIndex = GetSelectedClass();
+	if ( PAID_SERVICE_TYPE ) then
+		classIndex = PaidChange_GetCurrentClassIndex();
+	end
+	SetCharacterClass(classIndex);
+
+	CharacterCreate_UpdateHairCustomization();
+
+	-- Update right hand race portrait to reflect gender change
+	-- Set Race
+	local race, fileString = GetNameForRace();
+	CharacterCreateRaceLabel:SetText(race);
+	fileString = strupper(fileString);
+	local coords = GetSafeRaceIconCoords(fileString, gender);
+	CharacterCreateRaceIcon:SetTexCoord(coords[1], coords[2], coords[3], coords[4]);
+	
+	CharacterChangeFixup();
+end
+
+function CharacterCustomization_Left(id)
+	PlaySound("gsCharacterCreationLook");
+	CycleCharCustomization(id, -1);
+end
+
+function CharacterCustomization_Right(id)
+	PlaySound("gsCharacterCreationLook");
+	CycleCharCustomization(id, 1);
+end
+
+function CharacterCreate_Randomize()
+	PlaySound("gsCharacterCreationLook");
+	RandomizeCharCustomization();
+end
+
+function CharacterCreateRotateRight_OnUpdate(self)
+	if ( self:GetButtonState() == "PUSHED" ) then
+		SetCharacterCreateFacing(GetCharacterCreateFacing() + CHARACTER_FACING_INCREMENT);
+	end
+end
+
+function CharacterCreateRotateLeft_OnUpdate(self)
+	if ( self:GetButtonState() == "PUSHED" ) then
+		SetCharacterCreateFacing(GetCharacterCreateFacing() - CHARACTER_FACING_INCREMENT);
+	end
+end
+
+function CharacterCreate_UpdateHairCustomization()
+	CharacterCustomizationButtonFrame3Text:SetText(_G["HAIR_"..GetHairCustomization().."_STYLE"]);
+	CharacterCustomizationButtonFrame4Text:SetText(_G["HAIR_"..GetHairCustomization().."_COLOR"]);
+	CharacterCustomizationButtonFrame5Text:SetText(_G["FACIAL_HAIR_"..GetFacialHairCustomization()]);		
+end
+
+function SetButtonDesaturated(button, desaturated, r, g, b)
+	if ( not button ) then
+		return;
+	end
+	local icon = button:GetNormalTexture();
+	if ( not icon ) then
+		return;
+	end
+	local shaderSupported = icon:SetDesaturated(desaturated);
+
+	if ( not desaturated ) then
+		r = 1.0;
+		g = 1.0;
+		b = 1.0;
+	elseif ( not r or not shaderSupported ) then
+		r = 0.5;
+		g = 0.5;
+		b = 0.5;
+	end
+	
+	icon:SetVertexColor(r, g, b);
+end
+
+function GetFlavorText(tagname, sex)
+	local primary, secondary;
+	if ( sex == SEX_MALE ) then
+		primary = "";
+		secondary = "_FEMALE";
+	else
+		primary = "_FEMALE";
+		secondary = "";
+	end
+	local text = _G[tagname..primary];
+	if ( (text == nil) or (text == "") ) then
+		text = _G[tagname..secondary];
+	end
+	return text;
+end
+
+function CharacterCreate_DeathKnightSwap(self)
+	local _, classFilename = GetSelectedClass();
+	if ( classFilename == "DEATHKNIGHT" ) then
+		if (self.currentModel ~= "DEATHKNIGHT") then
+			self.currentModel = "DEATHKNIGHT";
+			self:SetNormalTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Up-Blue");
+			self:SetPushedTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Down-Blue");
+			self:SetHighlightTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Highlight-Blue");
+		end
+	else
+		if (self.currentModel == "DEATHKNIGHT") then
+			self.currentModel = nil;
+			self:SetNormalTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Up");
+			self:SetPushedTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Down");
+			self:SetHighlightTexture("Interface\\Glues\\Common\\Glue-Panel-Button-Highlight");
+		end
+	end
+end
+
+function CharacterChangeFixup()
+	if ( PAID_SERVICE_TYPE ) then
+		for i=1, MAX_CLASSES_PER_RACE, 1 do
+			if (CharacterCreate.selectedClass ~= i) then
+				local button = _G["CharacterCreateClassButton"..i];
+				button:Disable();
+				SetButtonDesaturated(button, true)
+			end
+		end
+
+		for i=1, MAX_RACES, 1 do
+			local button = _G["CharacterCreateRaceButton"..i];
+			-- Use the button's real race index (set in CharacterCreateEnumerateRaces),
+			-- not its fixed visual slot number, when asking the engine about a race.
+			local raceID = button.raceIndex;
+			if ( raceID ) then
+				local allow = false;
+				if ( PAID_SERVICE_TYPE == PAID_FACTION_CHANGE ) then
+					local faction = GetFactionForRace(PaidChange_GetCurrentRaceIndex());
+					if ( (raceID == PaidChange_GetCurrentRaceIndex()) or ((GetFactionForRace(raceID) ~= faction) and (IsRaceClassValid(raceID,CharacterCreate.selectedClass))) ) then
+						allow = true;
+					end
+				elseif ( PAID_SERVICE_TYPE == PAID_RACE_CHANGE ) then
+					local faction = GetFactionForRace(PaidChange_GetCurrentRaceIndex());
+					if ( (raceID == PaidChange_GetCurrentRaceIndex()) or ((GetFactionForRace(raceID) == faction) and (IsRaceClassValid(raceID,CharacterCreate.selectedClass))) ) then
+						allow = true
+					end
+				elseif ( PAID_SERVICE_TYPE == PAID_CHARACTER_CUSTOMIZATION ) then
+					if ( raceID == CharacterCreate.selectedRace ) then
+						allow = true
+					end
+				end
+				if (not allow) then
+					button:Disable();
+					SetButtonDesaturated(button, true)
+				end
+			end
+		end
+	end
+end

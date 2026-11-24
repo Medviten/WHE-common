@@ -7,3 +7,7 @@ You can clone them directly into your client's Data folder **if you don't have a
 out like a patch. Don't copy them into `patch-A.MPQ`: WHE's `deploy-dbc.sh` (with `LOCAL_COMMON_DIR` set) copies them
 into the realm's own patch, `patch-A.<realm>.MPQ`, for the modpaks in that realm's manifest, and removes them again
 when a modpak leaves it.
+
+The large world ports are patches of their own, one per map or continent: `patch-MoP.MPQ` (F-133/F-134), `patch-ER.MPQ`
+(F-137), `patch-Draenor.MPQ` (F-145), `patch-BrokenIsles.MPQ` (F-146), `patch-KulTiras.MPQ` (F-147) and `patch-Zandalar.MPQ`
+(F-148). Copy each one you need into the client's Data folder under the same name; don't link them from a slow disk.
